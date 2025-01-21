@@ -1,8 +1,15 @@
 // import React from 'react'
-type ComponentPropa={
- name:string; id:number;
- children?:React.ReactNode
-}
+import { type PropsWithChildrenw } from "react"
+
+// type ComponentPropa={
+//  name:string; id:number;
+//  children?:React.ReactNode
+// }
+type ComponentPropa=PropsWithChildrenw<{
+ name:string; 
+ id:number;
+
+}>
 const Components = ({name,id,children}:ComponentPropa) => {
   return (
     <div>
