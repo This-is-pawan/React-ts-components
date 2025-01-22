@@ -17,6 +17,8 @@ const Event = () => {
     const formData = new FormData(e.currentTarget);
     const data :Text ={
       text: formData.get("text"),
+      // text: formData.get("text") as string
+      // email: formData.get("email") as string
       email: formData.get("email"),
     };
     // const data=Object.fromEntries(formData)
