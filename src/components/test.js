@@ -32,6 +32,8 @@
 
 
 // createPassword();
+
+// you should be both of them and use other logic
 // let password=["A","B","C","D","F","j","e","1","#","$","!","*","2","5"];
 // console.log(random);
 // const random= Math.floor(Math.random()*password.length)
