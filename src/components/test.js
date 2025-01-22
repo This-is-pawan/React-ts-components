@@ -67,9 +67,32 @@
 // let hex = "";
 // let i = 5;
 
+<<<<<<< HEAD
 // while (hex.length < i) {
 //   const random = Math.floor(Math.random() * passwords.length);
 //   // console.log(random);
+=======
+// createPassword();
+
+// you should be both of them and use other logic
+// let password=["A","B","C","D","F","j","e","1","#","$","!","*","2","5"];
+// console.log(random);
+// const random= Math.floor(Math.random()*password.length)
+// console.log(random);
+// let hex=''
+// let i =5 ;
+// while ( hex.length <= i ) {
+//  const random= Math.floor(Math.random()*password.length)
+//  console.log(random);
+ 
+//  hex += password[random];
+
+ // console.log(hex);
+ 
+ // }
+ 
+
+>>>>>>> c3e46cada8644fc163392a164fc73f36431b078e
 
 //   hex += passwords[random];
 
