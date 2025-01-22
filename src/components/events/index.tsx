@@ -1,5 +1,8 @@
 import { useState } from "react";
-
+interface Text{
+ text:string;
+ Email:string;
+}
 const Event = () => {
   const [text, setText] = useState("");
   const [email, setEmail] = useState("");
@@ -12,11 +15,11 @@ const Event = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    // const data = {
-    //   text: formData.get("text"),
-    //   email: formData.get("email"),
-    // };
-    const data=Object.fromEntries(formData)
+    const data :Text ={
+      text: formData.get("text"),
+      email: formData.get("email"),
+    };
+    // const data=Object.fromEntries(formData)
     console.log(data);
   };
 
