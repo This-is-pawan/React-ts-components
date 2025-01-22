@@ -1,5 +1,6 @@
 // import Component from "./components/props/index";
-import State from "./components/Index";
+import Challange from "./components/challanges/index.js";
+// import Event from "./components/events/index";
 // console.log();
 
 
@@ -23,7 +24,10 @@ const App = () => {
   </Component>
         <Component name={'harry'} id={123} /> */}
         {/* <Component name={'harry'} id={123} /> it get an error of ts children so in index.tsx of use optional in type of children? */}
-     <State/>
+
+     {/* <Event /> */}
+     {/* <Challange type='advance'name='anna' /> */}
+     <Challange type='basic'name='susan' email='susan@gmail.com' />
 
 
       </main>

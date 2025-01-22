@@ -1,15 +1,34 @@
-*{
+* {
   box-sizing: border-box;
   color: #1a1a1a;
   text-align: center;
 }
-
-.btn{
-  background: #535bf2;
-color: white;
-letter-spacing: 2px ;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+.form{
+  width: 500px;
+  padding: 2rem;
+  margin: 1rem auto;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 5px pink;
 }
+.btn {
+  background: #535bf2;
+  color: white;
+  letter-spacing: 2px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 5rem;
+  font-size: 1.1rem;
+transition: all 1.1s ease;
+  height: 2.6rem;
+  border: none;
+  cursor: pointer;
+}
+.btn:hover{
+  color: rgb(59, 90, 116);
+}
+input:focus{
+  outline: none;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -19,41 +38,24 @@ a:hover {
   color: #535bf2;
 }
 
-
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  /* background-color: #1a1a1a; */
-  cursor: pointer;
-  transition: border-color 0.25s;
+input {
+  width: 14rem;
+  height: 2.5rem;
+  border-radius: 7px;
+  border: none;
+  background: #747bff;
 }
-button:hover {
-  border-color: #646cff;
+.alert{
+  background: #747bff;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.danger{
+  background: gold;
 }
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.success{
+  background: rgb(187, 181, 146);
 }
