@@ -1,0 +1,64 @@
+import { useReducer } from "react";
+import { initialState, counterReducer } from "./Reducer";
+function Reducer() {
+  const [state, dispatch] = useReducer(counterReducer, initialState);
+  return (
+    <div>
+      <h2>Count:{state.count}</h2>
+      <h2>Status:{state.status}</h2>
+      <div className="btn-container">
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch({ type: "increment" });
+          }}
+        >
+          Increment
+        </button>
+        <br />
+        <br />
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch({ type: "decrement" });
+          }}
+        >
+          Decrement
+        </button>
+        <br />
+        <br />
+        <button
+          className="btn"
+          onClick={() => {
+            dispatch({ type: "reset" });
+          }}
+        >
+          Reset
+        </button>
+        <br /><br />
+        <div className="btn-container">
+          <button
+            className="btn"
+            onClick={() => {
+              dispatch({ type: "setStatus", payload: "active" });
+            }}
+          > 
+            Set Status to Active
+          </button>
+          <br />
+          <br />
+          <button
+            className="btn"
+            onClick={() => {
+              dispatch({ type: "setStatus", payload: "inactive" });
+            }}
+          >
+            Set Status to Inactive
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+export default Reducer;
+
