@@ -1,5 +1,5 @@
 // import Component from "./components/props/index";
-import Challange from "./components/challanges/index.js";
+// import Challange from "./components/challanges/index.js";
 // import Event from "./components/events/index";
 // console.log();
 
@@ -12,6 +12,7 @@ import Challange from "./components/challanges/index.js";
 // name:'harry',
 // id:123,
 // }
+import Context from './components/context/index.js';
 import './components/test.js'
 const App = () => {
 
@@ -27,9 +28,9 @@ const App = () => {
 
      {/* <Event /> */}
      {/* <Challange type='advance'name='anna' /> */}
-     <Challange type='basic'name='susan' email='susan@gmail.com' />
+     {/* <Challange type='basic'name='susan' email='susan@gmail.com' /> */}
 
-
+ <Context/>
       </main>
   
   );

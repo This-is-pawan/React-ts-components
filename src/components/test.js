@@ -67,11 +67,11 @@
 // let hex = "";
 // let i = 5;
 
-<<<<<<< HEAD
+
 // while (hex.length < i) {
 //   const random = Math.floor(Math.random() * passwords.length);
 //   // console.log(random);
-=======
+// =======
 // createPassword();
 
 // you should be both of them and use other logic
@@ -92,7 +92,6 @@
  // }
  
 
->>>>>>> c3e46cada8644fc163392a164fc73f36431b078e
 
 //   hex += passwords[random];
 
