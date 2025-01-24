@@ -91,6 +91,49 @@
  
  // }
  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .card {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 10px;
+    }
+  </style>
+  <title>Dynamic Cards</title>
+</head>
+<body>
+  <div id="container"></div>
+  <script>
+    const Data = [
+      { id: 1, text: 'This is a code', bgColor: 'yellow' },
+      { id: 2, text: 'That is a code', bgColor: 'red' },
+      { id: 3, text: 'That is a code', bgColor: 'pink' },
+    ];
+
+    const dataHTML = Data.map((item) => {
+     
+      return `
+        <div class="card" style="background: ${item.bgColor};">
+          <h2>${item.id}</h2>
+          <p>${item.text}</p>
+        </div>
+      `;
+    }).join('');
+
+    const container = document.querySelector('#container');
+    container.innerHTML = dataHTML;
+  </script>
+</body>
+</html>
 
 
 //   hex += passwords[random];
