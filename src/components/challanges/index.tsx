@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // import React from 'react'
 type profileB={
  type:'basic';
@@ -30,7 +30,7 @@ return <article className="alert-danger">
 
 export default Challange
 
-=======
+
 
 // import React from 'react'
 type profile={
@@ -87,4 +87,4 @@ return <article className="alert-danger">
 
 export default Challange
 
->>>>>>> 205698e04bad997c2c4f197133a77edd0ccb54d4
+
