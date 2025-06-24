@@ -13,7 +13,7 @@ type Employee = Person & {
 }
 
 type Status = "pending" | "success" | "error";
-interface Dog {
+interface Dog {     
   name: string;
 }
 interface Dog {
