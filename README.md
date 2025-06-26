@@ -1,4 +1,5 @@
-###```
+### ts code
+```
 interface Person {
   name: string;
 }
@@ -21,7 +22,9 @@ interface Dog {
 }
 
 ```
-### ```
+### void use
+```
+when any condition is cannot return then use  the void function in the typescript  
 
 
 
