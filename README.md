@@ -40,9 +40,9 @@ login:()=> void;
 type Person= student|User
 
 const randomPerson=():Person=>{
-return Math.random()>0.5 ?{name:'john',study:()=>console.log('studying)}:{name:'mary',login:()=>console.log('studying)}
+return Math.random()>0.5 ?{name:'john',study:()=>console.log('studying)}:{name:'mary',login:()=>console.log('logging in)}
 }
-
+const Person=randomPerson()
 
 
 
