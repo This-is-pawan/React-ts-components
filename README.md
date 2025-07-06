@@ -193,8 +193,8 @@ const Register = () => {
 export default Register;
 ```
 
-### autentication with mysql frontend register
-```js
+### autentication with mysql frontend login
+```
 import React, { use, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -287,6 +287,7 @@ const Login = () => {
 export default Login;
 
 ```
+### 
  
 
 
