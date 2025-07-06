@@ -193,6 +193,100 @@ const Register = () => {
 export default Register;
 ```
 
+### autentication with mysql frontend register
+```js
+import React, { use, useState } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 
+import { toast } from "react-toastify";
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleForm = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:5000/login", {
+        email,
+        password,
+      });
+      console.log(res.data.success);
+
+      if (!res.data) {
+        toast.error(`something went wrong! `);
+      } else {
+        toast.success(`login successfully `);
+        navigate("/register");
+      }
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  return (
+    <div className="w-full h-screen bg-black flex items-center justify-center">
+      <form
+        className="w-full max-w-md p-6 bg-blue-200 rounded-lg shadow-lg grid gap-4"
+        onSubmit={handleForm}
+      >
+        <h2 className="text-xl font-bold text-center text-gray-700">Login</h2>
+
+        <div className="flex flex-col">
+          <label
+            htmlFor="email"
+            className="text-sm font-semibold text-gray-700"
+          >
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+            className="mt-1 p-2 rounded text-sm"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+
+        <div className="flex flex-col">
+          <label
+            htmlFor="password"
+            className="text-sm font-semibold text-gray-700"
+          >
+            Password
+          </label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+            className="mt-1 p-2 rounded text-sm"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition"
+        >
+          Login
+        </button>
+        <p className="">
+          <span className="px-2">if you have no account</span>
+          <Link to="/register" className="text-blue-900">
+            register
+          </Link>
+        </p>
+      </form>
+    </div>
+  );
+};
+
+export default Login;
+
+```
+ 
 
 
