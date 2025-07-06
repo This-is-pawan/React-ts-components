@@ -287,7 +287,118 @@ const Login = () => {
 export default Login;
 
 ```
-### 
+### Autentication with mysql backend server.js
+```js
+const express = require("express");
+const mysql = require("mysql2");
+const cors = require("cors");
+require("dotenv").config();
+
+const app = express();
+
+// Middleware
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    credentials: true,
+  })
+);
+app.use(express.json());
+
+// Database connection
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "pk1234@#",
+  database: "crud",
+});
+
+db.connect((err) => {
+  if (err) {
+    console.error("Database connection failed:", err.stack);
+    return;
+  }
+  console.log("Connected to MySQL database.");
+});
+
+// Register route
+app.post("/register", (req, res) => {
+  const { name, email, password } = req.body;
+
+  if (!name || !email || !password) {
+    return res
+      .status(400)
+      .json({ message: "Name, email, and password are required." });
+  }
+
+  const checkSql = "SELECT * FROM register WHERE email = ?";
+  db.query(checkSql, [email], (err, results) => {
+    if (err) {
+      console.error("Error checking user:", err);
+      return res
+        .status(500)
+        .json({ message: "Database error during user check." });
+    }
+
+    if (results.length > 0) {
+      console.log("Email already exists:", email);
+      return res.status(409).json({ message: "Email already registered." });
+    }
+
+    const insertSql =
+      "INSERT INTO register (name, email, password) VALUES (?, ?, ?)";
+    db.query(insertSql, [name, email, password], (err, result) => {
+      if (err) {
+        console.error("Error inserting user:", err);
+        return res.status(500).json({ message: "Registration failed." });
+      }
+
+      return res
+        .status(201)
+        .json({ message: "Registration successful", userId: result.insertId });
+    });
+  });
+});
+
+app.post("/login", (req, res) => {
+  const { email, password } = req.body;
+  console.log("Received login request:", email, password);
+
+  if (!email || !password) {
+    return res.status(400).json({ message: "Email and password are required." });
+  }
+
+  const checkSql = "SELECT * FROM register WHERE email = ?";
+  db.query(checkSql, [email], (err, results) => {
+    if (err) {
+      console.error("DB error:", err);
+      return res.status(500).json({ message: "Database error." });
+    }
+
+    if (results.length === 0) {
+      console.log("No user found with email:", email);
+      return res.status(401).json({ message: "Invalid email or password." });
+    }
+
+    const user = results[0];
+    console.log("Found user:", user);
+
+    if (user.password !== password) {
+      console.log("Password mismatch");
+      return res.status(401).json({ message: "Invalid email or password." });
+    }
+
+    return res.status(200).json({ message: "Login successful", userId: user.id });
+  });
+});
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
+
+```
+
  
 
 
