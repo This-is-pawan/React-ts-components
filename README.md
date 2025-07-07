@@ -58,9 +58,9 @@ Validate data at runtime (make sure it matches the expected type)
 Infer TypeScript types automatically from your schemas
 
 📌 Why use Zod?
-✅ Validates JSON, forms, API inputs/outputs
-✅ Works well with TypeScript (auto-type inference)
-✅ Easy to use, no decorators or classes
+✅  Validates JSON, forms, API inputs/outputs
+✅ Works well with TypeScript (auto-type inference)i
+   Easy to use, no decorators or classes
 ✅ Safer than just using type or interface (which exist only at compile time)
 ```ts
 import { z } from "zod";
