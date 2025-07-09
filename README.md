@@ -79,9 +79,9 @@ if (result.success) {
 } else {
   console.error("Validation errors:", result.error.format());
 }
-
+ 
 ```
-### autentication with mysql frontend register
+### Autentication with mysql frontend register
  
 ```js
 import React, { useState } from "react";
