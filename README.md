@@ -399,6 +399,85 @@ app.listen(PORT, () => {
 
 ```
 
- 
+ ### sequilize  libaray of nodejs
+ ```js
+const express = require("express");
+const { dbconnection } = require("./config/dbconnect");
+const app = express();
+app.use(express.json());
+UserModel.sync({ force: false });
+// drop and then create the table
+app.listen(4000, async () => {
+  console.log(`server is listen at port :4000`);
+  await dbconnection();
+});
+
+// router
+const router = require("express");
+const router = express.Router();
+router.post("/add", createUser);
+router.get("/getallusers", getUser);
+router.get("/getuser/:id", getUserByid);
+router.put("/update/:id", updateUser);
+router.delete("/detete/:id", deleteUser);
+module.exports = { router };
+
+// controller
+const { validate } = require("joi");
+
+exports.createUser =async (req, res) => {
+  const { error } = validate(req.body, userSchema);
+  if (error) return res.status(400).json(error.details[0].message);
+  const user=await UserModel.create(req.body);
+  return res.json(user)
+
+};
+exports.getUser = (req, res) => {
+  const { name } = req.body;
+};
+exports.getUserByid = (req, res) => {
+  const { name } = req.params;
+};
+
+exports.updateUser = (req, res) => {
+  const { name } = req.params;
+};
+const deleteUser = (req, res) => {};
+const { DataTypes } = require("sequelize");
+const { sequelize } = require("../config/dbconnect");
+// model schema
+const UserModel = sequelize.default(
+  "user",
+  {
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    age: DataTypes.INTEGER,
+    mobileNumber: DataTypes.INTEGER,
+    isActive: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
+    },
+  },
+  {
+    freezeTableName: true,
+  }
+);
+module.exports = { UserModel };
+// validation (middlware.js)like max password characters so use libaray joi npm i joi
+const joi = require("joi");
+const userSchema = joi.object({
+  firstName: joi.string().required(),
+  lastName: joi.string().required(),
+  email: joi.string().email(),
+  password: joi.string.min(6).rwequried(),
+  age: joi.number().integer().min(0).requried(),
+  mobileNumber: joi.number.integer().requried(),
+  isActive: joi.boolean().default(true),
+});
+moudel.exports = { userSchema };
+
+```
 
 
